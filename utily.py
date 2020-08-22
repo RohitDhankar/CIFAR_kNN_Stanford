@@ -8,6 +8,13 @@ import matplotlib.pyplot as plt
 # from scipy.misc.pilutil import imread
 #https://stackoverflow.com/questions/9298665/cannot-import-scipy-misc-imread
 
+# def unpickle(file):
+#     import pickle
+#     with open(file, 'rb') as fo:
+#         dict = pickle.load(fo, encoding='bytes')
+#     return dict
+
+
 def load_pickle(f):
     version = platform.python_version_tuple()
     if version[0] == '2':
@@ -19,7 +26,12 @@ def load_pickle(f):
 def load_CIFAR_batch(filename):
   """ load single batch of cifar """
   with open(filename, 'rb') as f:
-    datadict = load_pickle(f)
+    datadict = load_pickle(f) # load_pickle = 
+    #print(type(datadict)) # dict 
+    #print(datadict.keys()) # dict_keys(['batch_label', 'labels', 'data', 'filenames'])
+    #print(datadict['batch_label']) # training batch 1 of 5 >> training batch 5 of 5
+    #print(type(datadict['labels'])) # <class 'list'> - SIX Lists of Labels 
+    #print(len(datadict['labels'])) # SIX Lists of Labels  - each of Length 10,000
     X = datadict['data']
     Y = datadict['labels']
     X = X.reshape(10000, 3, 32, 32).transpose(0,2,3,1).astype("float")
@@ -46,8 +58,8 @@ def load_CIFAR10(ROOT):
 def loadCIFAR():
     cifar10_dir = '/home/dhankar/temp/cifar/CIFAR_kNN_Stanford/cifar-10-batches-py'
     X_train, y_train, X_test, y_test = load_CIFAR10(cifar10_dir)
-    print('Training data shape: ', X_train.shape)
-    print('Training labels shape: ', y_train.shape)
+    print('Training data - X_train -- shape: ', X_train.shape)
+    print('Training labels - y_train -- shape: ', y_train.shape)
     print('Test data shape: ', X_test.shape)
     print('Test labels shape: ', y_test.shape) 
     """
