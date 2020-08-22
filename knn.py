@@ -10,7 +10,6 @@ from utily import loadCIFAR
 X_train, y_train, X_test, y_test = loadCIFAR()
 
 def plotCifar():
-    print(type(X_train))
     """
     # Visualize some examples from the dataset.
     # We show a few examples of training images from each class.
@@ -20,7 +19,9 @@ def plotCifar():
     samples_per_class = 7
     for y, cls in enumerate(classes):
         #print(type(y)) #<class 'int'>
+        #print(y) # 0 to 9 - 10 Classes 
         idxs = np.flatnonzero(y_train == y) ##FOO_BAR_TBD--
+        #print(type(idxs)) # <class 'numpy.ndarray'> 
         #Output array, containing the indices of the elements of a.ravel() that are non-zero.
         #print(idxs) #[   29    30    35 ... 49941 49992 49994]
         idxs = np.random.choice(idxs, samples_per_class, replace=False)

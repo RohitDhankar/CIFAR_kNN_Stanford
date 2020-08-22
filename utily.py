@@ -34,8 +34,9 @@ def load_CIFAR_batch(filename):
     #print(len(datadict['labels'])) # SIX Lists of Labels  - each of Length 10,000
     X = datadict['data']
     Y = datadict['labels']
-    X = X.reshape(10000, 3, 32, 32).transpose(0,2,3,1).astype("float")
+    X = X.reshape(10000, 3, 32, 32).transpose(0,2,3,1).astype("float") # FOO_BAR_TBD
     Y = np.array(Y)
+    #print(Y.shape) #(10000,)
     return X, Y
 
 def load_CIFAR10(ROOT):
