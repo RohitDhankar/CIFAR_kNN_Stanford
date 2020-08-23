@@ -1,5 +1,3 @@
-# Are We There YET = http://rodrigob.github.io/are_we_there_yet/build/classification_datasets_results.html
-
 import random
 import numpy as np
 import matplotlib.pyplot as plt
@@ -36,16 +34,43 @@ def plotCifar():
 
 plotCifar()    
 
-"""
+
 # Subsample the data for more efficient code execution in this exercise
 num_training = 5000
-mask = list(range(num_training))
-X_train = X_train[mask]
-y_train = y_train[mask]
+mask_train = list(range(num_training))
+#print(len(mask_train)) #5000
+X_train = X_train[mask_train]
+#print(type(X_train)) #<class 'numpy.ndarray'>
+#print(X_train.shape) # (5000, 32, 32, 3)
+y_train = y_train[mask_train]
 
 num_test = 500
-mask = list(range(num_test))
-X_test = X_test[mask]
-y_test = y_test[mask]
-"""
+mask_test = list(range(num_test))
+X_test = X_test[mask_test]
+y_test = y_test[mask_test]
+
+# Reshape the image data into rows
+X_train = np.reshape(X_train, (X_train.shape[0], -1))
+X_test = np.reshape(X_test, (X_test.shape[0], -1))
+print(X_train.shape, X_test.shape) # (5000, 3072) (500, 3072)
+
+from knnCore import *
+
+# Create a kNN classifier instance. 
+classifier = KNearestNeighbor()
+classifier.train(X_train, y_train)
+
+#
+# Test your implementation:
+dists = classifier.compute_distances_two_loops(X_test)
+# After about 10Secs delay and the terminal frozen - (500, 5000)
+print(dists.shape) 
+#
+# We can visualize the distance matrix: each row is a single test example and
+# its distances to training examples
+plt.imshow(dists, interpolation='none')
+plt.show()
+
+
+
 
