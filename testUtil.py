@@ -24,7 +24,17 @@ def load_CIFAR_batch(filename):
     #print(len(datadict['labels'])) # 10,000
     X = datadict['data'] # the numpy.ndarray with data --- ? 
     #print(type(X)) # <class 'numpy.ndarray'>
+    #print(X.shape) # (10000, 3072)
+    print(X[:3]) # Head of - numpy.ndarray
+    print(X[-3:]) # Tail of - numpy.ndarray
+    print(X[[0, 1, 2], :]) 
+    # print - First 3 ROWS as these 3 ROWS have the R,G,B values for the First Image
+    # This is same as above - print(X[:3]) # Head of - numpy.ndarray
+    print(X[np.ix_([0,1,2], [0,1])])
+    # Above np.ix_ - first 3 ROWS of first 2 COLUMNS
     Y = datadict['labels']
+    #print(type(Y)) # <class 'list'>
+
 
     X = X.reshape(10000, 3, 32, 32).transpose(0,2,3,1).astype("float") # FOO_BAR_TBD
     Y = np.array(Y)
