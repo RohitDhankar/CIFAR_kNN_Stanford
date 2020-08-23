@@ -1,3 +1,4 @@
+# How is the CIFAR-10 and CIFAR-100 data collected == https://www.cs.toronto.edu/~kriz/learning-features-2009-TR.pdf
 
 from six.moves import cPickle as pickle
 import numpy as np
