@@ -32,8 +32,10 @@ def load_CIFAR_batch(filename):
     #print(datadict['batch_label']) # training batch 1 of 5 >> training batch 5 of 5
     #print(type(datadict['labels'])) # <class 'list'> - SIX Lists of Labels 
     #print(len(datadict['labels'])) # SIX Lists of Labels  - each of Length 10,000
-    X = datadict['data']
+    X = datadict['data'] # the numpy.ndarray with data --- ? 
+    #print(type(X)) # <class 'numpy.ndarray'>
     Y = datadict['labels']
+
     X = X.reshape(10000, 3, 32, 32).transpose(0,2,3,1).astype("float") # FOO_BAR_TBD
     Y = np.array(Y)
     #print(Y.shape) #(10000,)
