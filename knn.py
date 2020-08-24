@@ -6,6 +6,12 @@ from utily import loadCIFAR
 
 # Load the RAW Cifar Data
 X_train, y_train, X_test, y_test = loadCIFAR()
+"""
+Training data - X_train -- shape:  (50000, 32, 32, 3)
+Training labels - y_train -- shape:  (50000,)
+Test data shape:  (10000, 32, 32, 3)
+Test labels shape:  (10000,)
+"""
 
 def plotCifar():
     """
