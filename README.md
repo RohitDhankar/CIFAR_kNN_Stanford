@@ -10,4 +10,4 @@ CIFAR_kNN_Stanford
 - Andrej Karpathy ( in Broswer JavaScript Convolution CNN ) - https://cs.stanford.edu/people/karpathy/convnetjs/demo/cifar10.html
 
 
-- Source - https://www.youtube.com/watch?v=OoUX-nOEjG0&list=PLzUTmXVwsnXod6WNdg57Yc3zFx_f-RYsq&index=2
+- Stanford - Convolutional Neural Networks for Visual Recognition- Justin Johnson - https://www.youtube.com/watch?v=OoUX-nOEjG0&list=PLzUTmXVwsnXod6WNdg57Yc3zFx_f-RYsq&index=2
