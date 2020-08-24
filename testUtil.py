@@ -32,6 +32,41 @@ def load_CIFAR_batch(filename):
     # This is same as above - print(X[:3]) # Head of - numpy.ndarray
     print(X[np.ix_([0,1,2], [0,1])])
     # Above np.ix_ - first 3 ROWS of first 2 COLUMNS
+    print("-- "*20)
+    print((X[:1,:]).shape) # PRINT- First ROW and ALL COL's == (1, 3072)
+    print((X[:999,:]).shape) # PRINT- First ROW and ALL COL's == (2, 3072)
+    print((X[:1,:1024]).shape) # PRINT- First ROW and ALL COL's == (1, 1024)
+    # print(type(rgb1))
+    # print(rgb1.shape)
+    # #
+    print("-- $$ -------"*20)
+    im_r = X[2,:1024].reshape(32, 32)/255.0
+    print(im_r.shape) #(32,32)
+    plt.imshow(im_r) 
+    plt.show()
+    im_g = X[2,1024:2048].reshape(32, 32)/255.0
+    im_b = X[2,2048:].reshape(32, 32)/255.0
+    # im_g = X[1024:2048].reshape(32, 32)
+    # im_b = X[2048:].reshape(32, 32)
+
+    img_rgb = np.dstack((im_r, im_g, im_b))
+    
+    print(img_rgb.shape)
+    plt.imshow(img_rgb,interpolation='nearest',aspect='auto') 
+    plt.show()
+    #
+    
+    
+    
+    
+    
+    # STACKING Arrays - vstack() , dstack() , hstack() , column_stack() , row_stack()
+    #
+
+
+
+
+
     Y = datadict['labels']
     #print(type(Y)) # <class 'list'>
 

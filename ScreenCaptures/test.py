@@ -33,6 +33,17 @@ print("-- "*20)
 print(arr2[:3,-1]) # PRINT ALL 3 ROWS , but Only LAST COL == [2 5 8]
 #...this is a 1D Array a vector of the Last COlumn Values 
 #
+# Reorganizing Arrays 
+#
+# 2D Array -- 3 Rows and 3 Cols
+print("-- "*20)
+arr3 = np.arange(5,15) # [ 5  6  7  8  9 10 11 12 13 14] # 15 EXCLUDED 
+arr3 = np.arange(5,14).reshape((3, 3))
+print(arr3)
+#
+print("-- "*20)
+
+
 
 
 
