@@ -40,18 +40,20 @@ def load_CIFAR_batch(filename):
     # print(rgb1.shape)
     # #
     print("-- $$ -------"*20)
-    im_r = X[2,:1024].reshape(32, 32)/255.0
+    im_r = X[5,:1024].reshape(32, 32)/255.0
     print(im_r.shape) #(32,32)
-    plt.imshow(im_r) 
-    plt.show()
-    im_g = X[2,1024:2048].reshape(32, 32)/255.0
-    im_b = X[2,2048:].reshape(32, 32)/255.0
+    #plt.imshow(im_r) # Image RED Channel 
+    #plt.show()
+    im_g = X[5,1024:2048].reshape(32, 32)/255.0
+    im_b = X[5,2048:].reshape(32, 32)/255.0
     # im_g = X[1024:2048].reshape(32, 32)
     # im_b = X[2048:].reshape(32, 32)
 
     img_rgb = np.dstack((im_r, im_g, im_b))
     
     print(img_rgb.shape)
+    plt.figure(figsize=(2,2))
+    plt.xlabel("label---------")
     plt.imshow(img_rgb,interpolation='nearest',aspect='auto') 
     plt.show()
     #
