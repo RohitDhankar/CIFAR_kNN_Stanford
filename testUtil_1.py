@@ -18,10 +18,12 @@ def load_CIFAR_batch(filename):
   with open(filename, 'rb') as f:
     datadict = load_pickle(f) # load_pickle = 
     X = datadict['data'] # the numpy.ndarray with data --- ? 
+    #print(type(X)) # <class 'numpy.ndarray'>
+    #print(X.shape) #(10000, 3072)
     Y = datadict['labels']
     #print(type(Y)) # <class 'list'>
     print("--    "*10)
-    for k in range(10):
+    for k in range(1):
         im_r = X[k,:1024].reshape(32, 32)/255.0
         #print(im_r.shape) #(32,32)
         #plt.imshow(im_r) # Image RED Channel 
@@ -32,7 +34,7 @@ def load_CIFAR_batch(filename):
         img_label = str(datadict['labels'][k]) # 6 == FROG , 9 == TRUCK
         print(img_label) # 6 , 9 , 9 
         plt.figure(figsize=(2,2))
-        plt.xlabel(str(img_label)) # ?? Not OK 
+        plt.xlabel(str(img_label)) # ?? FOOBAR_Not OK 
         plt.imshow(img_rgb,interpolation='nearest',aspect='auto') 
         plt.show()
         #
