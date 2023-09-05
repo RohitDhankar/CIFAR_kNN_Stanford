@@ -39,7 +39,8 @@ def load_CIFAR_batch(filename):
         plt.show()
         #
 
-    X = X.reshape(10000, 3, 32, 32).transpose(0,2,3,1).astype("float") # FOO_BAR_TBD
+    X = X.reshape(10000, 3, 32, 32).transpose(0,2,3,1).astype("float") 
+    # 3072 = 3*32*32
     Y = np.array(Y)
     #print(Y.shape) #(10000,)
     return X, Y
